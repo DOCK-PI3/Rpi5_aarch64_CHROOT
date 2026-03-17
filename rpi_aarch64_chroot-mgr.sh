@@ -63,7 +63,7 @@ while true; do
 
             echo "[*] Iniciando descarga de $RELEASE (arch=arm64)..."
             # Se añade --keyring para evitar errores de validación de descarga
-            if ! debootstrap --arch=arm64 --foreign --keyring=/usr/share/keyrings/debian-archive-keyring.gpg "$RELEASE" "$TARGET_DIR" http://deb.debian.org/debian; then
+            if ! debootstrap --arch=arm64 "$RELEASE" "$TARGET_DIR" http://deb.debian.org/debian; then
                 echo "[X] Error crítico: No se pudo descargar la release. Revisa tu conexión o el nombre de la versión."
                 rm -rf "$TARGET_DIR"
                 continue
